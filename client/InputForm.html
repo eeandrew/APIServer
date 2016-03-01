@@ -2,28 +2,30 @@
 	<div class="input-form-wrapper">
 		<div class="input-form-item">
 			<label class="form-lable">API</label>
-			<input class="form-input" placeholder="REST API" />
+			<input class="form-input api-input" placeholder="REST API" value="{{currentItem.api}}"/>
 		</div>	
 		<div class="input-form-item">
 			<label class="form-lable">METHOD</label>
-			<input class="form-input" placeholder="REST API" />
+			<input class="form-input method-input" placeholder="METHOD" value="{{currentItem.method}}"/>
 		</div>
 		<div class="input-form-item">
 			<label class="form-lable">DELAY</label>
-			<input class="form-input" placeholder="DELAY" type="number"/>
+			<input class="form-input delay-input" placeholder="DELAY" type="number" value="{{currentItem.delay}}"/>
 		</div>	
 		<div class="input-form-item">
 			<label class="form-lable">STATUS CODE</label>
-			<input class="form-input" placeholder="SATUS CODE" type="number"/>
+			<input class="form-input status-code-input" placeholder="SATUS CODE" type="number" value="{{currentItem.status}}"/>
 		</div>	
 		<div class="input-form-item">
 			<label class="form-lable">RESPONSE</label>
-			<textarea class="form-input auto-height" rows="10"> </textarea>
+			<textarea class="form-input auto-height response-input" rows="10" >{{json2String currentItem.response}} </textarea>
 		</div>	
 
 		<div class="input-form-item">
-			<div class="btn btn-warning">删除</div>
-			<div class="btn btn-success">新增</div>			
+			{{#if newForm}}
+			<div class="btn btn-warning form-delete">删除</div>
+			{{/if}}
+			<div class="btn btn-success form-add">{{newBtnTxt}}</div>			
 		</div>
 	</div>
 </template>

@@ -7,14 +7,13 @@ Meteor.startup(function () {
 	res.setHeader("Access-Control-Allow-Methods","*");
 	res.setHeader("Access-Control-Allow-Headers","Content-Type");
     res.setHeader('Strict-Transport-Security', 'max-age=2592000; includeSubDomains'); // 2592000s / 30 days
-	
 	console.log(req.method +  '       ' + req.url)
 	var resObj = getRequest(req.method,req.url)
-	console.log(resObj)
 	if(resObj){
 		Meteor.setTimeout(function(){
+			res.writeHead(resObj.status)
 			res.end(JSON.stringify(resObj.response))
-		},parseInt(resObj.timeout))
+		},parseInt(resObj.delay))
 	}else {
     	return next();
 	}	

@@ -1,21 +1,13 @@
 Template.ApiList.helpers({
 	apis : function(){
-		var mockData = [{
-			api:'/service/test',method:'get',timeout:1000,_id:1
-		},{
-			api:'/service/test',method:'post',timeout:0,_id:2
-		},{
-			api:'/service/public',method : 'get',timeout:2000,_id:3
-		}]
-		return mockData
+		return RoutesDB.find();
 	}
 })
 
 Template.ApiListItem.events({
 	'click .api-list-item' : function(e) {
 		e.stopPropagation();
-		console.log(this.item)
-		Slide.openSlide(12)
+		Slide.openSlide(this.item._id)
 	}
 })
 

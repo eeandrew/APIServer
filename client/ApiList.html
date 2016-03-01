@@ -1,5 +1,6 @@
 <template name="ApiList">
 	<ul class="api-list">
+		{{> ApiListHeader}}
 		{{#each apis}}
 			{{>ApiListItem item=this}}
 		{{/each}}
@@ -10,6 +11,14 @@
 	<li class="api-list-item">
 		<span class="item-text">{{lowerOrUpper item.api 'L'}}</span>
 		<span class="item-text">{{lowerOrUpper item.method 'U'}}</span>
-		<span class="item-text">{{item.timeout}}</span>
+		<span class="item-text">{{item.delay}}</span>
+	</li>
+</template>
+
+<template name="ApiListHeader">
+	<li class="api-list-item api-list-header">
+		<span class="item-text">API</span>
+		<span class="item-text">METHOD</span>
+		<span class="item-text">DELAY</span>
 	</li>
 </template>
