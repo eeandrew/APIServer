@@ -3,7 +3,7 @@ Template.InputForm.events({
 		if(Session.get('current-active-item') !== null) {
 			RoutesDB.remove({_id:Session.get('current-active-item')})
 			Slide.closeSlide()
-			Alert.showAlert()
+			Alert.showAlert('Success')
 		}
 	},
 	'click  .form-add' : function() {
@@ -12,16 +12,25 @@ Template.InputForm.events({
 		newAPI.method = Template.instance().find('.method-input').value.toLowerCase() || 'get'
 		newAPI.delay = parseInt(Template.instance().find('.delay-input').value || 0)
 		newAPI.status = parseInt(Template.instance().find('.status-code-input').value || 200)
-		newAPI.response = $.parseJSON(Template.instance().find('.response-input').value)
+		newAPI.response =parseString2JSON(Template.instance().find('.response-input').value)
 		if(Session.get('current-active-item') !== null) {
 			RoutesDB.update({_id:Session.get('current-active-item')},newAPI)
 		}else {
 			var newID = RoutesDB.insert(newAPI)
 			Slide.openSlide(newID)
 		}
-		Alert.showAlert()
+		Alert.showAlert('Success')
 	}
 })
+
+function parseString2JSON(str) {
+	try {
+		return $.parseJSON(str)
+	}catch(e) {
+		console.log(e.message)
+		Alert.showAlert(e.message)
+	}
+}
 
 Template.InputForm.helpers({
 	currentItem : function() {

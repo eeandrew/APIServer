@@ -10,8 +10,11 @@ Meteor.startup(function () {
 	console.log(req.method +  '       ' + req.url)
 	var resObj = getRequest(req.method,req.url)
 	if(resObj){
+		res.setHeader("access-control-allow-origin", "*");
+		res.setHeader ('Content-Type','application/json');
 		Meteor.setTimeout(function(){
 			res.writeHead(resObj.status)
+			
 			res.end(JSON.stringify(resObj.response))
 		},parseInt(resObj.delay))
 	}else {
