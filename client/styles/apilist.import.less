@@ -3,15 +3,16 @@
 	.api-list-item {
 		&:hover{
 			cursor:pointer;
-			background:#ccc;
 		}
-	  margin-bottom:10px;
 	  padding:10px  5px;
 	  border-top:1px solid #ccc;
 	  display:flex;
 	  justify-content: space-between;
 	  .item-text {
 	  	flex:1;
+	  }
+	  &:nth-child(2n+1) {
+	  	background:#D8E2E9;
 	  }
 	}
 }
