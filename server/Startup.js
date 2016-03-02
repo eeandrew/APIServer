@@ -5,7 +5,7 @@ Meteor.startup(function () {
   connectHandler.use(function (req, res, next) {
 	res.setHeader("access-control-allow-origin", "*");
 	res.setHeader("Access-Control-Allow-Methods","*");
-	res.setHeader("Access-Control-Allow-Headers","Content-Type");
+	res.setHeader("Access-Control-Allow-Headers","X-Requested-With,*");
     res.setHeader('Strict-Transport-Security', 'max-age=2592000; includeSubDomains'); // 2592000s / 30 days
 	console.log(req.method +  '       ' + req.url)
 	var resObj = getRequest(req.method,req.url)
