@@ -12,3 +12,32 @@ curl https://install.meteor.com/ | sh
 cd APIServer
 meteor -p 8000
 ```
+```
+H5 TO Navive Protocol
+
+{
+  pluginName : "NavigationBarController.class",
+  commandName : "updateNavgationBarContent",
+  arguments : {
+            leftButton : {
+               color:'#FFFFF',
+               txt:'返回',
+               icon:'back-arrow',
+               callback : 'onBackButtonClicked'
+            },
+            rightButton : {
+              ...
+              同leftButton
+            },
+            title : {
+              color : '#FFFFFF',
+              txt : '稳赢安e+',
+              callback : 'onTitleButtonClicked'
+              icon : 'location',
+              type : 'text', // text: 文字，tab: 选项卡切换等...
+            }
+            
+    }
+  
+}
+```
