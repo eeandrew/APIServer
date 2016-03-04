@@ -15,17 +15,20 @@ meteor -p 8000
 ```
 H5 TO Navive Protocol
 
+lu://task/?{pluginName}={params}
+pluginName: 插件名称,如navp
+params:
 {
-  pluginName : "NavigationBarController.class",
-  commandName : "updateNavgationBarContent",
-  arguments : {
-            leftButton : {
+  ------------------pluginName : "NavigationBarController.class",
+  cmd : "updateNavgationBarContent",
+  args : {
+            lBtn : {
                color:'#FFFFF',
                txt:'返回',
                icon:'back-arrow',
                callback : 'onBackButtonClicked'
             },
-            rightButton : {
+            rBtn : {
               ...
               同leftButton
             },
@@ -34,7 +37,7 @@ H5 TO Navive Protocol
               txt : '稳赢安e+',
               callback : 'onTitleButtonClicked'
               icon : 'location',
-              type : 'text', // text: 文字，tab: 选项卡切换等...
+              type : 'text', // normal: 单行文字，subTitle:带小标题 tab: 选项卡切换等...
             }
             
     }
